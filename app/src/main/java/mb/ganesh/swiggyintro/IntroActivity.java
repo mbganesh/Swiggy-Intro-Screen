@@ -70,6 +70,23 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
+        tabIndicator.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                position = tab.getPosition();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         runThread();
 
     }
@@ -84,6 +101,7 @@ public class IntroActivity extends AppCompatActivity {
 
                             @Override
                             public void run() {
+//                                position = viewPager.getCurrentItem();
                                 viewPager.setCurrentItem(position);
                                 position++;
                                 if (position == mList.size()){
@@ -92,7 +110,7 @@ public class IntroActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                        Thread.sleep(2500);
+                        Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
